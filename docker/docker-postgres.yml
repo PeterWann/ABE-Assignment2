@@ -1,0 +1,11 @@
+version: '3'
+services:
+  postgres:
+    container_name: hotel_postgres
+    image: postgres:12.2-alpine
+    expose:
+      - 5432
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=group25
