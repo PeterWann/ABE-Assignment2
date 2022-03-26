@@ -11,9 +11,13 @@ const Reservation = new GraphQLObjectType({
     name: 'Reservation',
     fields: {
         id: { type: new GraphQLNonNull(GraphQLID) },
-        dateFrom: { type: new GraphQLNonNull(GraphQLString) },
-        datoTo: { type: new GraphQLNonNull(GraphQLString) },
-        room: { type: new GraphQLNonNull(Room)}
+        date_from: { type: new GraphQLNonNull(GraphQLString) },
+        date_to: { type: new GraphQLNonNull(GraphQLString) },
+        room_id: { type: new GraphQLNonNull(Room),
+            resolve: async (obj, args, context) => {
+                return await context.loaders.getRoom.load(obj.room_id);
+            }
+        }
     },
 });
 

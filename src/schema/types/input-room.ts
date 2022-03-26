@@ -19,7 +19,7 @@ const InputRoom = new GraphQLInputObjectType({
         television: { type: new GraphQLNonNull(GraphQLBoolean) },
         roomservice: { type: new GraphQLNonNull(GraphQLBoolean) },
         available: { type: new GraphQLNonNull(GraphQLBoolean) },
-        createdAt: { type: new GraphQLNonNull(GraphQLString) },
+        created_at: { type: new GraphQLNonNull(GraphQLString) },
     },
 });
 

@@ -1,6 +1,6 @@
 CREATE TABLE Rooms
 (
-	id VARCHAR(255) UNIQUE NOT NULL,
+	id INT UNIQUE NOT NULL,
     price FLOAT NOT NULL,
 	roomnumber INT UNIQUE NOT NULL,
     fridge BOOLEAN NOT NULL,
@@ -8,26 +8,26 @@ CREATE TABLE Rooms
     television BOOLEAN NOT NULL,
     roomservice BOOLEAN NOT NULL,
     available BOOLEAN NOT NULL,
-    createdAt VARCHAR(255) NOT NULL,
+    created_at VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
 INSERT INTO 
-Rooms(id, price, roomnumber, fridge, aircondition, television, roomservice, available, createdAt)
+Rooms(id, price, roomnumber, fridge, aircondition, television, roomservice, available, created_at)
 VALUES
-('1', 299.99, 1, TRUE, TRUE, TRUE, TRUE, TRUE, '2011-10-05T14:48:00.000Z');
+(1, 299.99, 1, TRUE, TRUE, TRUE, TRUE, TRUE, '2011-10-05T14:48:00.000Z');
 
 CREATE TABLE Reservations
 (
-	id VARCHAR(255) UNIQUE NOT NULL,
-    dateTo VARCHAR(255) NOT NULL,
-    dateFrom VARCHAR(255) NOT NULL,
+	id INT UNIQUE NOT NULL,
+    date_to VARCHAR(255) NOT NULL,
+    date_from VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    roomId VARCHAR(255) NOT NULL,
-    FOREIGN KEY (roomId) REFERENCES Rooms(id)
+    room_id INT NOT NULL,
+    FOREIGN KEY (room_id) REFERENCES Rooms(id)
 );
 
 INSERT INTO
-Reservations(id, dateTo, dateFrom, roomId)
+Reservations(id, date_to, date_from, room_id)
 VALUES
-('1','2020', '2022', '1')
+(1,'2020', '2022', 1)

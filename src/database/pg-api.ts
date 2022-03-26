@@ -14,12 +14,16 @@ export const pgApiWrapper = async () => {
             reservationList: async () => {
                 const res = await pgQuery(`SELECT * FROM Reservations`);
                 return res.rows;
+            },
+            getRoomById: async (room_id: any) => {
+                const res = await pgQuery(`SELECT * FROM rooms WHERE id = ${room_id}`);
+                return res.rows;
             }
         },
         mutators: {
             roomCreate: async (Room: any) => {
                 const pgResp = await pgQuery(`INSERT INTO rooms (id, price, roomnumber, fridge, 
-                    aircondition, television, roomservice, available, createdAt)
+                    aircondition, television, roomservice, available, created_at)
             VALUES (
                 '${Room.id}',
                 '${Room.price}',
@@ -29,17 +33,17 @@ export const pgApiWrapper = async () => {
                 '${Room.television}',
                 '${Room.roomservice}',
                 '${Room.available}',
-                '${Room.createdAt}'
+                '${Room.created_at}'
             )
             `)
             },
             reservationCreate: async (Reservation: any) => {
-                const pgResp = await pgQuery(`INSERT INTO reservations (id, to, from, room)
+                const pgResp = await pgQuery(`INSERT INTO reservations (id, date_to, date_from, room_id)
             VALUES (
                 '${Reservation.id}',
-                '${Reservation.to}',
-                '${Reservation.from}',
-                '${Reservation.room}',
+                '${Reservation.date_to}',
+                '${Reservation.date_from}',
+                '${Reservation.room_id}',
             )`)
             }
         },
