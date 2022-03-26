@@ -5,14 +5,14 @@ import { postreqConnectionString } from '../config';
 export default async function pgClient() {
     const pgPool = new pg.Pool({
         connectionString: postreqConnectionString,
-        database: 'hotel-assignment2',
+        database: 'hotel_assignment_2',
     });
 
 try {
     const client = await pgPool.connect();
     const tableCountResp = await client.query(
         'select count(*) from information_schema.tables where table_schema = $1;',
-        ['hotel-assigment2']
+        ['hotel_assignment_2']
     );
     client.release();
 
@@ -25,7 +25,7 @@ try {
 
     const client = await pgPool.connect();
     const db = await client.query(
-        'CREATE DATABASE hotel-assignment-2;'
+        'CREATE DATABASE hotel_assignment_2;'
     )
     client.release();
 }
