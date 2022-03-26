@@ -15,14 +15,14 @@ const QueryType = new GraphQLObjectType({
     fields: {
         roomGetList: {
             type: new GraphQLList(new GraphQLNonNull(Room)),
-            resolve: async (source, args, { pgPool }) => {
-                return await pgPool.roomList();
+            resolve: async (source, args, { queries }) => {
+                return await queries.roomList();
             },
         },
         reservationGetList: {
             type: new GraphQLList(new GraphQLNonNull(Reservation)),
-            resolve: async (source, args, { pgPool }) => {
-                return await pgPool.reservationList();
+            resolve: async (source, args, { queries }) => {
+                return await queries.reservationList();
             },
         }
     },

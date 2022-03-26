@@ -1,6 +1,6 @@
 import pgClient from './pg-client';
 
-const pgApiWrapper = async () => {
+export const pgApiWrapper = async () => {
     const { pgPool } = await pgClient();
     const pgQuery = (text: string, params = {}) =>
         pgPool.query(text, Object.values(params));
@@ -11,7 +11,7 @@ const pgApiWrapper = async () => {
                 return res.rows;
             },
             reservationList: async () => {
-                const res = await pgQuery(`SELECT * from reservations`);
+                const res = await pgQuery(`SELECT * FROM Reservations`);
                 return res.rows;
             }
         },

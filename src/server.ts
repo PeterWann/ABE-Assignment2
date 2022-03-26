@@ -5,18 +5,24 @@ import cors from 'cors';
 import * as config from './config';
 import pgClient from './database/pg-client';
 
+import { pgApiWrapper } from './database/pg-api';
+
 async function main() {
     const pgPool = await pgClient();
     const server = express();
     server.use(cors());
     server.use(express.urlencoded({ extended: false }));
     server.use(express.json());
+    const pgApi = await pgApiWrapper();
+    const queries =  {
+        ...pgApi.queries
+    }
 
     server.use(
         '/graphql',
         graphqlHTTP({
             schema,
-            context: pgPool,
+            context: { pgPool, queries },
             graphiql: true,
         })
     );
