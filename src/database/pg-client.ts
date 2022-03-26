@@ -26,7 +26,7 @@ try {
 
     const client = await pgPool.connect();
     const db = await client.query(
-        'CREATE DATABASE hotel_assignment_2;'
+        'CREATE DATABASE hotel_assignment_2'
     )
     client.release();
 }

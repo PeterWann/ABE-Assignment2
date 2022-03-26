@@ -7,8 +7,8 @@ CREATE TABLE Rooms
     aircondition BOOLEAN NOT NULL,
     television BOOLEAN NOT NULL,
     roomservice BOOLEAN NOT NULL,
-    available: BOOLEAN NOT NULL,
-    createdAt: VARCHAR(255) NOT NULL,
+    available BOOLEAN NOT NULL,
+    createdAt VARCHAR(255) NOT NULL
 );
 
 INSERT INTO 

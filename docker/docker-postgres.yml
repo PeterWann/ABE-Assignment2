@@ -8,6 +8,7 @@ services:
     ports:
       - '5432:5432'
     environment:
+      - POSTGRES_DB=hotel_assignment_2
       - POSTGRES_PASSWORD=group25
     volumes: 
       - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
