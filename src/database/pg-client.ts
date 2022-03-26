@@ -5,7 +5,6 @@ import { postreqConnectionString } from '../config';
 export default async function pgClient() {
     const pgPool = new pg.Pool({
         connectionString: postreqConnectionString,
-        database: 'hotel_assignment_2',
     });
 
 try {

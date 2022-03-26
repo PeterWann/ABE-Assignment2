@@ -1,3 +1,4 @@
+import Reservation from '../schema/types/reservation';
 import pgClient from './pg-client';
 
 export const pgApiWrapper = async () => {
@@ -16,13 +17,30 @@ export const pgApiWrapper = async () => {
             }
         },
         mutators: {
-            roomCreate: async (room: any) => {
-                const pgResp = await pgQuery(`INSERT INTO rooms (id, available)
+            roomCreate: async (Room: any) => {
+                const pgResp = await pgQuery(`INSERT INTO rooms (id, price, roomnumber, fridge, 
+                    aircondition, television, roomservice, available, createdAt)
             VALUES (
-                '${room.id}',
-                '${room.available}'
+                '${Room.id}',
+                '${Room.price}',
+                '${Room.roomnumber}',
+                '${Room.fridge}',
+                '${Room.aircondition}',
+                '${Room.television}',
+                '${Room.roomservice}',
+                '${Room.available}',
+                '${Room.createdAt}'
             )
             `)
+            },
+            reservationCreate: async (Reservation: any) => {
+                const pgResp = await pgQuery(`INSERT INTO reservations (id, to, from, room)
+            VALUES (
+                '${Reservation.id}',
+                '${Reservation.to}',
+                '${Reservation.from}',
+                '${Reservation.room}',
+            )`)
             }
         },
     };

@@ -17,12 +17,15 @@ async function main() {
     const queries =  {
         ...pgApi.queries
     }
+    const mutators = {
+        ...pgApi.mutators
+    }
 
     server.use(
         '/graphql',
         graphqlHTTP({
             schema,
-            context: { pgPool, queries },
+            context: { pgPool, queries, mutators },
             graphiql: true,
         })
     );

@@ -1,6 +1,6 @@
 import {
     GraphQLID,
-    GraphQLObjectType,
+    GraphQLInputObjectType,
     GraphQLString,
     GraphQLInt,
     GraphQLNonNull,
@@ -8,8 +8,8 @@ import {
     GraphQLBoolean,
 } from 'graphql';
 
-const Room = new GraphQLObjectType({
-    name: 'Room',
+const InputRoom = new GraphQLInputObjectType({
+    name: 'InputRoom',
     fields: {
         id: { type: new GraphQLNonNull(GraphQLID) },
         price: { type: new GraphQLNonNull(GraphQLFloat) },
@@ -23,4 +23,5 @@ const Room = new GraphQLObjectType({
     },
 });
 
-export default Room;
+export default InputRoom;
+  
