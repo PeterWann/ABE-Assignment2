@@ -4,7 +4,7 @@
 
 - run 'npm run tsc' to run Typescript Compiler
 
-- run 'npm start-db' to run docker image with database
+- run 'npm run start-db' to run docker image with database
 
 - run 'npm start' to run server.
 
