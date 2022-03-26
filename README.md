@@ -8,4 +8,4 @@
 
 - run 'npm start' to run server.
 
-- GraphiQL is running at http://localhost:3000/graphql
+- GraphiQL is running at http://localhost:3000/graphqlgit 

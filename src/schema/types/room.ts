@@ -14,11 +14,11 @@ const Room = new GraphQLObjectType({
     fields: {
         id: { type: new GraphQLNonNull(GraphQLID) },
         price: { type: new GraphQLNonNull(GraphQLFloat) },
-        ammenities: {
-            type: new GraphQLNonNull(
-                new GraphQLList(new GraphQLNonNull(GraphQLString))
-            ),
-        },
+        roomnumber: { type: new GraphQLNonNull(GraphQLInt)},
+        fridge: { type: new GraphQLNonNull(GraphQLBoolean)},
+        aircondition: { type: new GraphQLNonNull(GraphQLBoolean)},
+        television: { type: new GraphQLNonNull(GraphQLBoolean)},
+        roomservice: { type: new GraphQLNonNull(GraphQLBoolean)},
         available: { type: new GraphQLNonNull(GraphQLBoolean) },
         createdAt: { type: new GraphQLNonNull(GraphQLString) ,
             resolve: (source) => source.createdAt.toISOString(),
