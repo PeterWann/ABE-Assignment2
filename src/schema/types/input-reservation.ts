@@ -3,9 +3,8 @@ import {
     GraphQLInputObjectType,
     GraphQLString,
     GraphQLNonNull,
+    GraphQLInt,
 } from 'graphql';
-
-import InputRoom from './input-room';
 
 const InputReservation = new GraphQLInputObjectType({
     name: 'InputReservation',
@@ -13,7 +12,7 @@ const InputReservation = new GraphQLInputObjectType({
         id: { type: new GraphQLNonNull(GraphQLID) },
         date_to: { type: new GraphQLNonNull(GraphQLString) },
         date_from: { type: new GraphQLNonNull(GraphQLString) },
-        room_id: { type: new GraphQLNonNull(InputRoom) }
+        room_id: { type: new GraphQLNonNull(GraphQLInt) }
     },
 });
 
